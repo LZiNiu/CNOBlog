@@ -1,0 +1,28 @@
+.el-menu {
+    background-color: transparent;
+    .el-menu-item {
+        height: 100%;
+        border-bottom: none;
+        background-color: transparent;
+    }
+    .el-sub-menu {
+        height: 100%;
+
+    }
+    .el-sub-menu__title {
+        height: 100%;
+    }
+    .el-sub-menu__title:hover {
+        background-color: transparent;
+        color: var(--el-menu-hover-text-color);
+    }
+}
+
+.el-menu--horizontal .el-menu-item:not(.is-disabled):focus, .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+    background-color: transparent;
+}
+
+
+.el-menu--horizontal.el-menu {
+    border-bottom: none;
+}

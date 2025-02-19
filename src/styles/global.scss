@@ -1,0 +1,26 @@
+$header-container-h: 60px;
+
+.header-container {
+    width: 100%;
+    height: $header-container-h;
+    background-color: transparent;
+    position: fixed;
+    // border-bottom: 2px solid color-mix(in oklab, var(--color-gray-950) 5%, transparent);
+    align-items: center;
+}
+
+
+.main-container {
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    padding-top: $header-container-h;
+    align-items: center;
+    background-color: gray;
+}
+
+
+.footer-container {
+    width: 100%;
+    height: 60px;;
+    background-color: azure;
+}
