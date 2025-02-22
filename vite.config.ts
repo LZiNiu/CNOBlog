@@ -16,7 +16,9 @@ export default defineConfig({
     vueDevTools(),
     tailwindcss(),
     AutoImport({
+      imports: ['vue', 'vue-router'],
       resolvers: [ElementPlusResolver()],
+      dts: "./auto-imports.d.ts",
     }),
     Components({
       resolvers: [ElementPlusResolver()],
@@ -27,4 +29,5 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+
 })

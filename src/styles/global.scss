@@ -1,19 +1,20 @@
-$header-container-h: 60px;
+@use "variables";
 
 .header-container {
     width: 100%;
-    height: $header-container-h;
+    height: var(--header-container-h);
     background-color: transparent;
     position: fixed;
-    // border-bottom: 2px solid color-mix(in oklab, var(--color-gray-950) 5%, transparent);
+    border-bottom: 2px solid color-mix(in oklab, var(--color-gray-950) 5%, transparent);
     align-items: center;
+    z-index: 999;
 }
 
 
 .main-container {
     width: 100%;
     min-height: calc(100vh - 60px);
-    padding-top: $header-container-h;
+    // padding-top: var(--header-container-h);
     align-items: center;
     background-color: gray;
 }

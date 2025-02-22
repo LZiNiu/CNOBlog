@@ -1,28 +1,78 @@
 .el-menu {
     background-color: transparent;
+
     .el-menu-item {
         height: 100%;
         border-bottom: none;
         background-color: transparent;
+        color: white;
+        position: relative;
+        /* 确保伪元素定位正确 */
+        overflow: hidden;
+        /* 防止动画超出范围 */
     }
+
     .el-sub-menu {
         height: 100%;
-
     }
+
     .el-sub-menu__title {
         height: 100%;
+        color: white;
     }
+
     .el-sub-menu__title:hover {
         background-color: transparent;
         color: var(--el-menu-hover-text-color);
     }
 }
 
-.el-menu--horizontal .el-menu-item:not(.is-disabled):focus, .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+/* 去除选中时的背景色 */
+.el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
+.el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
     background-color: transparent;
 }
 
-
+/* 去除菜单下边框使其充满header容器 */
 .el-menu--horizontal.el-menu {
     border-bottom: none;
+}
+
+/* 鼠标悬浮时的伪元素动画 */
+.el-menu-item:hover::after,
+.el-sub-menu__title:hover::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    /* 初始位置在中间 */
+    bottom: 0;
+    width: 0;
+    /* 初始宽度为 0 */
+    height: 2px;
+    /* 边框高度 */
+    background-color: var(--el-menu-hover-text-color);
+    /* 蓝色边框 */
+    // transition: all 0.3s ease;
+    /* 平滑过渡效果 */
+    transform: translateX(-50%);
+    /* 居中调整 */
+    animation: expand-line 0.5s forwards;
+    /* 应用动画 */
+}
+
+/* 定义从中间向两边扩展的动画 */
+@keyframes expand-line {
+    0% {
+        width: 0;
+        /* 初始宽度为 0 */
+    }
+
+    100% {
+        width: 100%;
+        /* 最终宽度为 100% */
+        left: 0;
+        /* 左右对齐 */
+        transform: translateX(0);
+        /* 移除居中偏移 */
+    }
 }
